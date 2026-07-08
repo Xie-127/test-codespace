@@ -1,5 +1,5 @@
 {
-  "go.formatTool": "gopls",
+  "go.formatTool": "goimports",
   "go.toolsEnvVars": {
     "GOPROXY": "https://mirrors.aliyun.com/goproxy/,direct"
   },

@@ -1,3 +1,7 @@
+# 获取用户
+GET http://localhost:8080/users
+
+# 新增用户
 # POST http://localhost:8080/users
 # Content-Type: application/json
 
@@ -6,8 +10,6 @@
 # {"name":"王五","email":"wangwu@example.com"}
 # {"name":"赵六","email":"zhaoliu@example.com"}
 # {"name":"钱七","email":"qianqi@example.com"}
-
-GET http://localhost:8080/users
 
 # 删除 ID 为 1 的用户
 # DELETE http://localhost:8080/users/1
