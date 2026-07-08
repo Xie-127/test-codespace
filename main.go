@@ -1,11 +1,11 @@
 package main
 
 import (
-    "encoding/json"
-    "fmt"
-    "net/http"
-    "strconv"
-    "strings"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"strconv"
+	"strings"
 )
 
 type User struct {
@@ -26,7 +26,7 @@ func newApp() *app {
 func (a *app) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     switch {
     case r.Method == http.MethodGet && r.URL.Path == "/users":
-        a.handleListUsers(w, r)
+        a.handleListUsers(w)
     case r.Method == http.MethodPost && r.URL.Path == "/users":
         a.handleCreateUser(w, r)
     case r.Method == http.MethodGet && strings.HasPrefix(r.URL.Path, "/users/"):
@@ -36,7 +36,7 @@ func (a *app) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     }
 }
 
-func (a *app) handleListUsers(w http.ResponseWriter, r *http.Request) {
+func (a *app) handleListUsers(w http.ResponseWriter) {
     users := make([]User, 0, len(a.users))
     for _, user := range a.users {
         users = append(users, user)
