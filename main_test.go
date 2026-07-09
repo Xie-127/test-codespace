@@ -1,11 +1,12 @@
 package main
 
 import (
-    "bytes"
-    "encoding/json"
-    "net/http"
-    "net/http/httptest"
-    "testing"
+	"bytes"
+	"encoding/json"
+	"net/http"
+	"net/http/httptest"
+	"strconv"
+	"testing"
 )
 
 func TestGetUsersReturnsEmptyInitially(t *testing.T) {
@@ -52,7 +53,7 @@ func TestCreateAndGetUser(t *testing.T) {
         t.Fatalf("unexpected created user: %+v", created)
     }
 
-    getReq := httptest.NewRequest(http.MethodGet, "/users/"+string(rune('0'+created.ID)), nil)
+    getReq := httptest.NewRequest(http.MethodGet, "/users/"+strconv.Itoa(created.ID), nil)
     getRR := httptest.NewRecorder()
 
     app.ServeHTTP(getRR, getReq)
