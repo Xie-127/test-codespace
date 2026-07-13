@@ -1,0 +1,14 @@
+### 获取用户列表
+GET http://localhost:8081/users
+
+### 创建用户
+POST http://localhost:8081/users
+Content-Type: application/json
+
+{"name":"Alice","email":"alice@example.com"}
+
+### 再次获取用户列表
+GET http://localhost:8081/users
+
+### 获取指定用户
+GET http://localhost:8081/users/1
